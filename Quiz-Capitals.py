@@ -103,3 +103,14 @@ state_cap = {
     "Wisconsin": "Madison",
     "Wyoming": "Cheyenne",
 }
+
+import random
+
+states = list(state_cap.keys())
+# pulling out state names from dictionary and setting it to variable
+# print(states)--> ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
+
+while True:
+    state = random.choice(states)
+    capital = state_cap[state]
+    user_guess = input("What is the capital of" + state + "?")
