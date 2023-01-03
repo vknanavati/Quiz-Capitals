@@ -113,4 +113,18 @@ states = list(state_cap.keys())
 while True:
     state = random.choice(states)
     capital = state_cap[state]
-    user_guess = input("What is the capital of" + state + "?")
+    user_guess = input("Whxat is the capital of" + state + "?")
+
+    if user_guess == capital:
+        print("Woohoo! You got it.")
+    elif user_guess not in capital:
+        print("Oh no, your answer is incorrect.")
+    else:
+        break
+
+#  if user_guess == "exit":
+#         break
+#     elif user_guess == capital:
+#         print("Correct!")
+#     else:
+#         print("Incorrect")
