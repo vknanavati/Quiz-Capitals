@@ -52,6 +52,8 @@
 # d = dict(state_cap)
 # print(d)
 
+import random
+
 state_cap = {
     "Alabama": "Montgomery",
     "Alaska": "Juneau",
@@ -104,8 +106,6 @@ state_cap = {
     "Wyoming": "Cheyenne",
 }
 
-import random
-
 states = list(state_cap.keys())
 # pulling out state names from dictionary and setting it to variable
 # print(states)--> ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
@@ -113,7 +113,7 @@ states = list(state_cap.keys())
 while True:
     state = random.choice(states)
     capital = state_cap[state]
-    user_guess = input("Whxat is the capital of" + state + "?")
+    user_guess = input("What is the capital of " + state + "? ").capitalize()
 
     if user_guess == capital:
         print("Woohoo! You got it.")
@@ -128,3 +128,6 @@ while True:
 #         print("Correct!")
 #     else:
 #         print("Incorrect")
+
+# use .capitalize
+# space
