@@ -306,7 +306,7 @@ def stateNames(state):
 
 
 states = map(stateNames, state_list)
-# print(f"State list: {list(states)}")
+print(f"State list: {list(states)}")
 
 # Notice the way I log, providing a detailed word, in this case, State List:, and using string interposlation.
 # It helps when you log multiple things and is a common good practice.
@@ -315,19 +315,19 @@ states = map(stateNames, state_list)
 # print(states)--> ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
 
 
-while len(state_list) > 0:
-    single_state_dict = random.choice(state_list)
-    state = single_state_dict["Name"]
-    capital = single_state_dict["Capital"]
+# while len(state_list) > 0:
+#     single_state_dict = random.choice(state_list)
+#     state = single_state_dict["Name"]
+#     capital = single_state_dict["Capital"]
 
-    user_guess = input("What is the capital of " + state + "? ")
+#     user_guess = input("What is the capital of " + state + "? ")
 
-    if user_guess == capital:
-        print("Woohoo! You got it.")
-    elif user_guess not in capital:
-        print("Oh no, your answer is incorrect.")
-    else:
-        break
+#     if user_guess == capital:
+#         print("Woohoo! You got it.")
+#     elif user_guess not in capital:
+#         print("Oh no, your answer is incorrect.")
+#     else:
+#         break
 
 # Notice my use of the list of capitals, or rather it's length, as the while conditional statement.
 # while len(state_list) > 0:
@@ -371,3 +371,36 @@ while len(state_list) > 0:
 # And incredibly foolish not to ask because it makes sure you're thinking abou things the right way.
 # Good luck, it looks great so far. I'm happy you're understanding how to use loops very well.
 # Now just fine tuning real use cases and deeper ideas.
+
+
+# def questionStateGame():
+# def questionPopulationGame():
+# def questionStateColorGame():
+
+
+# def questionStateGame():
+
+#  while len(state_list) > 0:
+#     single_state_dict = random.choice(state_list)
+#     state = single_state_dict["Name"]
+#     capital = single_state_dict["Capital"]
+
+#     user_guess = input("What is the capital of " + state + "? ")
+
+#     if user_guess == capital:
+#         print("Woohoo! You got it.")
+#     elif user_guess not in capital:
+#         print("Oh no, your answer is incorrect.")
+#     else:
+#         break
+
+# To do:
+# rewrite Sebby's code:
+# 1. map function
+# 2.State color game
+# 3. Put each game into it's own function
+# de handleGames(): keywords to toggle between games
+# help option
+# welcome message to prompt
+
+# Write an actionable list of to-do for what I will do tomorrow
