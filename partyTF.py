@@ -6,21 +6,30 @@ state_list = [
         "Capital": "Montgomery",
         "Population": 0000,
         "Best Universities": ["College1", "College2", "College3"],
-        "Party": {"rep": True, "dem": False},
+        "Party": {
+            "rep": True,
+            "dem": False
+        },
     },
     {
         "Name": "Connecticut",
         "Capital": "Hartford",
         "Population": 0000,
         "Best Universities": ["College1", "College2", "College3"],
-        "Party": {"rep": False, "dem": True},
+        "Party": {
+            "rep": False,
+            "dem": True
+        },
     },
     {
         "Name": "Pennsylvania",
         "Capital": "Harrisburg",
         "Population": 0000,
         "Best Universities": ["College1", "College2", "College3"],
-        "Party": {"rep": False, "dem": True},
+        "Party": {
+            "rep": False,
+            "dem": True
+        },
     },
 ]
 
@@ -30,13 +39,13 @@ state_list = [
 # print(x)
 # # output: [{'rep': True, 'dem': False}, {'rep': False, 'dem': True}, {'rep': False, 'dem': True}]
 
-x = map(lambda d: d["Party"], state_list)
-another way to retrieve value of "Party"
-print(list(x))
+party_dict = map(lambda d: d["Party"], state_list)
+# another way to retrieve value of "Party"
+print(list(party_dict))
 # output: [{'rep': True, 'dem': False}, {'rep': False, 'dem': True}, {'rep': False, 'dem': True}]
 
-y = map(lambda d: d["Name"], state_list)
-print(list(y))
+state_names = map(lambda d: d["Name"], state_list)
+print(list(state_names))
 # output: ['Alabama', 'Connecticut', 'Pennsylvania']
 #####################
 states = [
@@ -44,7 +53,7 @@ states = [
     {"rep": "False", "dem": "True"},
     {"rep": "False", "dem": "True"},
 ]
-#I was attempting to loop through the list of dictionaries in order to append keys that had the value "True" to a list so that I could zip the list of states to their party but I can't figure out how to do this
+# I was attempting to loop through the list of dictionaries in order to append keys that had the value "True" to a list so that I could zip the list of states to their party but I can't figure out how to do this
 
 ################################
 # SCRATCH PAD:
