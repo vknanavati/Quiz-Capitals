@@ -24,20 +24,27 @@ state_list = [
     },
 ]
 
-
-x = [d["Party"] for d in state_list]
+####################################################
+# x = [d["Party"] for d in state_list]
 # retrieve value of "Party"
 # print(x)
-# output: [{'rep': True, 'dem': False}, {'rep': False, 'dem': True}, {'rep': False, 'dem': True}]
+# # output: [{'rep': True, 'dem': False}, {'rep': False, 'dem': True}, {'rep': False, 'dem': True}]
 
 x = map(lambda d: d["Party"], state_list)
-# another way to retrieve value of "Party"
-# print(list(x))
+another way to retrieve value of "Party"
+print(list(x))
 # output: [{'rep': True, 'dem': False}, {'rep': False, 'dem': True}, {'rep': False, 'dem': True}]
 
 y = map(lambda d: d["Name"], state_list)
 print(list(y))
-
+# output: ['Alabama', 'Connecticut', 'Pennsylvania']
+#####################
+states = [
+    {"rep": "True", "dem": "False"},
+    {"rep": "False", "dem": "True"},
+    {"rep": "False", "dem": "True"},
+]
+#I was attempting to loop through the list of dictionaries in order to append keys that had the value "True" to a list so that I could zip the list of states to their party but I can't figure out how to do this
 
 ################################
 # SCRATCH PAD:
