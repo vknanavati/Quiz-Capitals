@@ -1,333 +1,140 @@
 import random
+import json
 
-state_dict_list = [
-    {
-        "Name": "Alabama",
-        "Capital": "Montgomery",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Alaska",
-        "Capital": "Juneau",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Arizona",
-        "Capital": "Phoenix",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Arkansas",
-        "Capital": "Litte Rock",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "California",
-        "Capital": "Sacramento",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Colorado",
-        "Capital": "Denver",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Connecticut",
-        "Capital": "Hartford",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Delaware",
-        "Capital": "Dover",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Florida",
-        "Capital": "Tallahassee",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Georgia",
-        "Capital": "Atlanta",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Hawaii",
-        "Capital": "Honolulu",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Idaho",
-        "Capital": "Boise",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Illinois",
-        "Capital": "Springfield",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Indiana",
-        "Capital": "Indianapolis",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Iowa",
-        "Capital": "Ds Moines",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Kansas",
-        "Capital": "Topeka",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Kentucky",
-        "Capital": "Frankfort",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Louisiana",
-        "Capital": "Batn Rouge",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Maine",
-        "Capital": "Augusta",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Maryland",
-        "Capital": "Annapolis",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Massachusetts",
-        "Capital": "Boston",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Michigan",
-        "Capital": "Lansing",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Minnesota",
-        "Capital": "Sait Paul",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Mississippi",
-        "Capital": "Jackson",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Missouri",
-        "Capital": "Jeffersn City",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Montana",
-        "Capital": "Helena",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Nebraska",
-        "Capital": "Lincoln",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Nevada",
-        "Capital": "Carsn City",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "New Hampshire",
-        "Capital": "Concord",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "New Jersey",
-        "Capital": "Trenton",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "New Mexico",
-        "Capital": "SanaFe",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "New York",
-        "Capital": "Albany",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "North Carolina",
-        "Capital": "Raleigh",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "North Dakota",
-        "Capital": "Bismarck",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Ohio",
-        "Capital": "Columbus",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Oklahoma",
-        "Capital": "Oklahoa City",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Oregon",
-        "Capital": "Salem",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Pennsylvania",
-        "Capital": "Harrisburg",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Rhode Island",
-        "Capital": "Providence",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "South Carolina",
-        "Capital": "Columbia",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "South Dakota",
-        "Capital": "Pierre",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Tennessee",
-        "Capital": "Nashville",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Texas",
-        "Capital": "Austin",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Utah",
-        "Capital": "Salt Lae City",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Vermont",
-        "Capital": "Montpelier",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Washington",
-        "Capital": "Olympia",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "West Virginia",
-        "Capital": "Charleston",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Wisconsin",
-        "Capital": "Madison",
-        "Population": 0000,
-        "Best Universities": ["College1", "College2", "College3"],
-    },
-    {
-        "Name": "Wyoming",
-        "Capital": "Cheyenne",
-        "Best Universities": ["College1", "College2", "College3"],
-        "Population": 800000,
-    },
-]
+with open("dummy_multiple_data.json", encoding="UTF-8") as state_dict_list:
+    state_dict_list = state_dict_list.read()
+
+# print(f"data:{state_dict_list}")
+state_dict_list = json.loads(state_dict_list)
 
 
-def multiple_choice_game():
+# def multiple_choice_game():
+#     # state = single_state_dict["Name"]
+#     # print(state)
+#     # return state
+#     # quest = f"What is the capital of {state} ? "
+#     # print(quest)
+#     # return quest
+#     # need to put ONLY capitals into a list
+
+#     return
+
+print("Running first funciton")
+
+
+def right_answer():
+    # grab correct answer
+    while len(state_dict_list) > 0:
+        single_state_dict = random.choice(state_dict_list)
+        # Checking that it returns single_state_dict
+        # print(single_state_dict)
+        # return single_state_dict
+        correct_answer = single_state_dict["Capital"]
+        print(f"Correct answer is: {correct_answer}")
+        return correct_answer
+
+
+good_answer = right_answer()
+
+false_answers = []
+
+
+def wrong_answers():
     capitals = []
-    wrong_answers = []
+    for dic in state_dict_list:
+        capitals.append(dic["Capital"])
 
-    def multiple_answers():
-        for dic in state_dict_list:
-            capitals.append(dic["Capital"])
-
-        wrong_answers.append(capitals[random.randrange(0, 50)])
-        wrong_answers.append(capitals[random.randrange(0, 50)])
-        wrong_answers.append(capitals[random.randrange(0, 50)])
-
-        print(f"Wrong Answers: {wrong_answers}")
-        return wrong_answers
-
-    wrong_answers = multiple_answers()
-    # Validation: check all 3 wrong answers do not match the correct answer
-    for choice in wrong_answers:
-        if choice == "Trenton":
-            wrong_answers = []
-            wrong_answers = multiple_answers()
-
-    print("Wrong answers validated")
-
-    return wrong_answers
+    # now we need to create a list from the capitals list of 3 random capitals
+    false_answers.append(capitals[random.randrange(0, 50)])
+    false_answers.append(capitals[random.randrange(0, 50)])
+    false_answers.append(capitals[random.randrange(0, 50)])
+    print(f"Wrong Answers: {false_answers}")
+    return false_answers
 
 
-multiple_choice_game()
+wrong_list = wrong_answers()
+
+print(f"wrong list:{wrong_list}")
+
+combined_list = []
 
 
+def validate_answers(right=str, wrongs=list):
+    for wrong_choice in wrongs:
+        if wrong_choice == right:
+            wrong_answers()
+
+        # This adds the wrongs to a new list and the right to that same new list --> combined list has 2 elements = wrong list and right (str)
+        if wrong_choice not in right:
+            combined_list.append(wrongs)
+            combined_list.append(right)
+        print(f"combined list is: {combined_list}")
+        return combined_list
+
+    print(f"Wrongs are validated: {wrongs}")
+    return wrongs
+
+
+validate_answers(good_answer, wrong_list)
+
+#########################################
+# ALTERNATIVE CONDENSE: This good_answer to false answers to create a combined list with 4 elements
+# I tried putting this statement in the validate answers definition but the code won't work so far when i do that
+false_answers.append(good_answer)
+print(f"FALSE and RIGHT: {false_answers}")
+copied_list = false_answers.copy()
+print(f"Copied list is: {copied_list}")
+#####################################################################################
+# DONE TODAY:
+# 1. DRILL multiple_game.py
+# # import json file: open(), read(), loads()
+# # create function to select random state capital as correct answer: while loop, create variable to hold random correct capital, return cap
+# # GLOBAL: create variable to set this function to
+# # create empty list to hold 3 false answers
+# # create function to select three false answers
+# # from state dict use for loop to pull all capital names to be held in a created list
+# # from this list randomly choose three capitals to be put into false_answers list
+# # print/return false answers
+# # GLOBAL: create variable to set this function to
+# # create validate answers fnx: for loop to compare false answers to correct answer, return wrongs
+# # invoke validate_answers
+
+# 2. In the validate answers function I added another if statement in the for loop that will combine the right and wrongs if the wrongs are validated
+# # This combined list contains 2 elements, of list of wrongs and the second is the right string
+# 3. I wrote code for an alternative way to combine lists that creates one list with 4 elements
+
+
+##########################################
+# def multiple_choice_game():
+#     capitals = []
+#     wrong_answers = []
+
+#     def multiple_answers():
+#         for dic in state_dict_list:
+#             capitals.append(dic["Capital"])
+
+#         wrong_answers.append(capitals[random.randrange(0, 50)])
+#         wrong_answers.append(capitals[random.randrange(0, 50)])
+#         wrong_answers.append(capitals[random.randrange(0, 50)])
+
+#         print(f"Wrong Answers: {wrong_answers}")
+#         return wrong_answers
+
+#     wrong_answers = multiple_answers()
+#     # Validation: check all 3 wrong answers do not match the correct answer
+#     for choice in wrong_answers:
+#         if choice == "Trenton":
+#             wrong_answers = []
+#             wrong_answers = multiple_answers()
+
+#     print("Wrong answers validated")
+
+#     return wrong_answers
+
+
+# multiple_choice_game()
+
+#################################################
 # def Wrong_Answer_List():
 
 #     wrong_cap_list = state_dict_list[Capital]
