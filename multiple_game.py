@@ -29,17 +29,20 @@ def right_answer():
         # Checking that it returns single_state_dict
         # print(single_state_dict)
         # return single_state_dict
-        correct_answer = single_state_dict["Capital"]
-        print(f"Correct answer is: {correct_answer}")
+        correct_answer = {
+            "Capital": single_state_dict["Capital"],
+            "State": single_state_dict["Name"],
+        }
+        print(f"Correct answer is: {correct_answer['Capital']}")
         return correct_answer
 
 
 good_answer = right_answer()
-
-false_answers = []
+print(f"The good answer is: {good_answer}")
 
 
 def wrong_answers():
+    false_answers = []
     capitals = []
     for dic in state_dict_list:
         capitals.append(dic["Capital"])
@@ -48,42 +51,72 @@ def wrong_answers():
     false_answers.append(capitals[random.randrange(0, 50)])
     false_answers.append(capitals[random.randrange(0, 50)])
     false_answers.append(capitals[random.randrange(0, 50)])
-    print(f"Wrong Answers: {false_answers}")
+    # print(f"Wrong Answers: {false_answers}")
+
+    false_answers = list(dict.fromkeys(false_answers))
+
+    if len(false_answers) < 3:
+        wrong_answers()
+    print(f"FALSE ANSWERS ARE: {false_answers}")
     return false_answers
+
+    # print(f"Wrong Answers: {false_answers}")
+    # return false_answers
+
+    # false_answers.append(capitals[random.randrange(0, 50)])
+    # false_answers.append(capitals[random.randrange(0, 50)])
+    # false_answers.append(capitals[random.randrange(0, 50)])
+    # print(f"Wrong Answers: {false_answers}")
+    # return false_answers
 
 
 wrong_list = wrong_answers()
 
 print(f"wrong list:{wrong_list}")
 
-combined_list = []
 
-
-def validate_answers(right=str, wrongs=list):
+def validate_answers(right: dict[str, str], wrongs: list):
+    print(f"validate_answer arguments: {right}, {wrongs}")
+    print(f'right answer for capital: {right["Capital"]}')
     for wrong_choice in wrongs:
-        if wrong_choice == right:
-            wrong_answers()
+        if wrong_choice == right["Capital"]:
+            wrongs = wrong_answers()
 
-        # This adds the wrongs to a new list and the right to that same new list --> combined list has 2 elements = wrong list and right (str)
-        if wrong_choice not in right:
-            combined_list.append(wrongs)
-            combined_list.append(right)
-        print(f"combined list is: {combined_list}")
-        return combined_list
+    all_choices = {"Wrong Answers": wrongs, "Right Answer": right}  # []  # {}
 
-    print(f"Wrongs are validated: {wrongs}")
-    return wrongs
+    print(f"Wrongs are validated: {all_choices['Wrong Answers']}")
+    return all_choices
 
 
-validate_answers(good_answer, wrong_list)
+four_answers = validate_answers(good_answer, wrong_list)
 
-#########################################
-# ALTERNATIVE CONDENSE: This good_answer to false answers to create a combined list with 4 elements
-# I tried putting this statement in the validate answers definition but the code won't work so far when i do that
-false_answers.append(good_answer)
-print(f"FALSE and RIGHT: {false_answers}")
-copied_list = false_answers.copy()
-print(f"Copied list is: {copied_list}")
+print(f"four answers are: {four_answers}")
+# output -> four answers are: {'Wrong Answers': ['Pierre', 'Harrisburg', 'Springfield'], 'Right Answer': {'Capital': 'Jackson', 'State': 'Mississippi'}}
+
+
+def playMultiple():
+
+    three_caps = four_answers["Wrong Answers"]
+    one_cap = four_answers["Right Answer"]["Capital"]
+    new_line = "\n"
+
+    input(
+        f"What is the capital of {four_answers['Right Answer']['State']} ? {new_line}{new_line.join(three_caps)} "
+    )
+
+    print(f"Four choices: {one_cap}, {three_caps}")
+
+
+playMultiple()
+
+
+# NEXT:
+# def playMultiple():
+#   add question
+#   add multiple choice questions in A, B, C, D format
+#   user input
+#   compare user input to correct answer
+# make sure edge case in duplicate answer in final_answers is resolved
 #####################################################################################
 # DONE TODAY:
 # 1. DRILL multiple_game.py
@@ -98,10 +131,6 @@ print(f"Copied list is: {copied_list}")
 # # GLOBAL: create variable to set this function to
 # # create validate answers fnx: for loop to compare false answers to correct answer, return wrongs
 # # invoke validate_answers
-
-# 2. In the validate answers function I added another if statement in the for loop that will combine the right and wrongs if the wrongs are validated
-# # This combined list contains 2 elements, of list of wrongs and the second is the right string
-# 3. I wrote code for an alternative way to combine lists that creates one list with 4 elements
 
 
 ##########################################
