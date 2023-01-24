@@ -100,11 +100,11 @@ def playMultiple():
     one_cap = four_answers["Right Answer"]["Capital"]
     new_line = "\n"
 
-    input(
-        f"What is the capital of {four_answers['Right Answer']['State']} ? {new_line}{new_line.join(three_caps)} "
-    )
-
     print(f"Four choices: {one_cap}, {three_caps}")
+
+    input(
+        f"What is the capital of {four_answers['Right Answer']['State']} ? {new_line}{new_line.join(three_caps)}{new_line}{four_answers['Right Answer']['Capital']}"
+    )
 
 
 playMultiple()
