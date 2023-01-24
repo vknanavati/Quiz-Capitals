@@ -31,7 +31,7 @@
     },
     {
         "Name": "Arkansas",
-        "Capital": "Litte Rock",
+        "Capital": "Little Rock",
         "Population": "0000",
         "Best Universities": [
             "College1",
@@ -141,7 +141,7 @@
     },
     {
         "Name": "Iowa",
-        "Capital": "Ds Moines",
+        "Capital": "Des Moines",
         "Population": "0000",
         "Best Universities": [
             "College1",
@@ -221,7 +221,7 @@
     },
     {
         "Name": "Minnesota",
-        "Capital": "Sait Paul",
+        "Capital": "Saint Paul",
         "Population": "0000",
         "Best Universities": [
             "College1",
@@ -271,7 +271,7 @@
     },
     {
         "Name": "Nevada",
-        "Capital": "Carsn City",
+        "Capital": "Carson City",
         "Population": "0000",
         "Best Universities": [
             "College1",
@@ -301,7 +301,7 @@
     },
     {
         "Name": "New Mexico",
-        "Capital": "SanaFe",
+        "Capital": "Santa Fe",
         "Population": "0000",
         "Best Universities": [
             "College1",
@@ -351,7 +351,7 @@
     },
     {
         "Name": "Oklahoma",
-        "Capital": "Oklahoa City",
+        "Capital": "Oklahoma City",
         "Population": "0000",
         "Best Universities": [
             "College1",
