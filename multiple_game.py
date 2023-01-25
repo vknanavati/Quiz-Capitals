@@ -95,17 +95,36 @@ print(f"four answers are: {four_answers}")
 
 
 def playMultiple():
-
+    shuffle_list = []
     three_caps = four_answers["Wrong Answers"]
     one_cap = four_answers["Right Answer"]["Capital"]
     new_line = "\n"
 
     print(f"Four choices: {one_cap}, {three_caps}")
 
+    for city in three_caps:
+        shuffle_list.append(city)
+    print(f"{new_line}SHUFFLED LIST IS: {shuffle_list}")
+
+    shuffle_list.append(four_answers["Right Answer"]["Capital"])
+    print(f"COMPLETED LIST FOR SUFFLE{shuffle_list}")
+
+    shuffle_copied_list = shuffle_list.copy()
+    print(f"RANDOM LIST IS: {shuffle_copied_list}")
+
+    random.shuffle(shuffle_copied_list)
+    print(f"SHUFFLED RANDO LIST: {shuffle_copied_list}")
+
+    # wrong_list.append(good_answer)
+    # print(f"{new_line}COMBO_LIST is {wrong_list}")
+
     user_guess = input(
-        f"What is the capital of {four_answers['Right Answer']['State']} ? {new_line}{new_line.join(three_caps)}{new_line}{four_answers['Right Answer']['Capital']}{new_line}"
+        f"{new_line}What is the capital of {four_answers['Right Answer']['State']} ?{new_line} {new_line}{new_line.join(shuffle_copied_list)}{new_line}"
     )
 
+    # user_guess = input(
+    #     f"{new_line}What is the capital of {four_answers['Right Answer']['State']} ?{new_line} {new_line}{new_line.join(three_caps)}{new_line}{four_answers['Right Answer']['Capital']}{new_line}"
+    # )
     if user_guess in one_cap:
         print("Woohoo!")
     else:
