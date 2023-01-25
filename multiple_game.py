@@ -102,9 +102,16 @@ def playMultiple():
 
     print(f"Four choices: {one_cap}, {three_caps}")
 
-    input(
-        f"What is the capital of {four_answers['Right Answer']['State']} ? {new_line}{new_line.join(three_caps)}{new_line}{four_answers['Right Answer']['Capital']}"
+    user_guess = input(
+        f"What is the capital of {four_answers['Right Answer']['State']} ? {new_line}{new_line.join(three_caps)}{new_line}{four_answers['Right Answer']['Capital']}{new_line}"
     )
+
+    if user_guess in one_cap:
+        print("Woohoo!")
+    else:
+        print(
+            f"I'm sorry the correct answer is {four_answers['Right Answer']['Capital']}"
+        )
 
 
 playMultiple()
@@ -112,26 +119,18 @@ playMultiple()
 
 # NEXT:
 # def playMultiple():
-#   add question
+#   add question- DONE
 #   add multiple choice questions in A, B, C, D format
-#   user input
+#   user input- DONE
 #   compare user input to correct answer
 # make sure edge case in duplicate answer in final_answers is resolved
 #####################################################################################
 # DONE TODAY:
-# 1. DRILL multiple_game.py
-# # import json file: open(), read(), loads()
-# # create function to select random state capital as correct answer: while loop, create variable to hold random correct capital, return cap
-# # GLOBAL: create variable to set this function to
-# # create empty list to hold 3 false answers
-# # create function to select three false answers
-# # from state dict use for loop to pull all capital names to be held in a created list
-# # from this list randomly choose three capitals to be put into false_answers list
-# # print/return false answers
-# # GLOBAL: create variable to set this function to
-# # create validate answers fnx: for loop to compare false answers to correct answer, return wrongs
-# # invoke validate_answers
-
+# 1. DRILLED stateApp game
+# 2. DRILLED MCQ app
+# 3. to def playMultiple - I added correct answer to appear among possible choices
+## 4. created question and user input
+## 5. added if statements to confirm if answer is correct and also to reveal correct answer if user_guess is incorrect
 
 ##########################################
 # def multiple_choice_game():
