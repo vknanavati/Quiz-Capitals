@@ -22,6 +22,16 @@ state_dict_list = json.loads(state_dict_list)
 print("Running first funciton")
 
 
+def number_of_rounds():
+    pass
+    # rounds = 5
+    # for _ in range(rounds)
+
+
+# run this for whole function
+# number_of_rounds()
+
+
 def right_answer():
     # grab correct answer
     while len(state_dict_list) > 0:
@@ -137,12 +147,12 @@ playMultiple()
 
 
 # NEXT:
+# Check final answers list for duplicate choices
 # def playMultiple():
-#   add question- DONE
 #   add multiple choice questions in A, B, C, D format
-#   user input- DONE
 #   compare user input to correct answer
 # make sure edge case in duplicate answer in final_answers is resolved
+# run for 5 questions
 #####################################################################################
 # DONE TODAY:
 # 1. DRILLED stateApp game
