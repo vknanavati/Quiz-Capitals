@@ -113,11 +113,15 @@ def main():
 
         letters = ["a", "b", "c", "d"]
 
-        choices = zip(letters, shuffle_copied_list)
-        print(tuple(choices))
+        # choices = zip(letters, shuffle_copied_list)
+        # print(list(tuple(choices)))
 
-        # wrong_list.append(good_answer)
+        wrong_list.append(good_answer)
         # print(f"{new_line}COMBO_LIST is {wrong_list}")
+
+        print("Letters paired with options:")
+        for l, s in zip(letters, shuffle_copied_list):
+            print(l, s)
 
         user_guess = input(
             f"{new_line}What is the capital of {four_answers['Right Answer']['State']} ?{new_line} {new_line}{new_line.join(shuffle_copied_list)}{new_line}"
