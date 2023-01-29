@@ -20,11 +20,11 @@ def main():
                 "Capital": single_state_dict["Capital"],
                 "State": single_state_dict["Name"],
             }
-            print(f"Correct answer is: {correct_answer['Capital']}")
+            print(f"\nCorrect answer is: {correct_answer['Capital']}\n")
             return correct_answer
 
     good_answer = right_answer()
-    print(f"The good answer is: {good_answer}")
+    # print(f"The good answer is: {good_answer}")
 
     def wrong_answers():
         false_answers = []
@@ -36,27 +36,18 @@ def main():
         false_answers.append(capitals[random.randrange(0, 50)])
         false_answers.append(capitals[random.randrange(0, 50)])
         false_answers.append(capitals[random.randrange(0, 50)])
-        # print(f"Wrong Answers: {false_answers}")
+
+        print(f"\nBefore fromkeys method: {false_answers}\n")
 
         false_answers = list(dict.fromkeys(false_answers))
 
+        print(f"\nAfter fromkeys: {false_answers}\n")
+
         if len(false_answers) < 3:
             wrong_answers()
-        print(f"FALSE ANSWERS ARE: {false_answers}")
         return false_answers
 
-        # print(f"Wrong Answers: {false_answers}")
-        # return false_answers
-
-        # false_answers.append(capitals[random.randrange(0, 50)])
-        # false_answers.append(capitals[random.randrange(0, 50)])
-        # false_answers.append(capitals[random.randrange(0, 50)])
-        # print(f"Wrong Answers: {false_answers}")
-        # return false_answers
-
     wrong_list = wrong_answers()
-
-    print(f"wrong list:{wrong_list}")
 
     def validate_answers(right: dict[str, str], wrongs: list):
         print(f"validate_answer arguments: {right}, {wrongs}")
@@ -75,14 +66,13 @@ def main():
     print(f"four answers are: {four_answers}")
     # output -> four answers are: {'Wrong Answers': ['Pierre', 'Harrisburg', 'Springfield'], 'Right Answer': {'Capital': 'Jackson', 'State': 'Mississippi'}}
 
-    def playMultiple(answers):
-        new_line = "\n"
+    def play_multiple(answers):
         choices = answers["Wrong Answers"]
         choices.append(answers["Right Answer"]["Capital"])
 
         random.shuffle(choices)
 
-        selections = f"'\n' a. {choices[0]} '\n' b. {choices[1]} '\n' c. {choices[2]} '\n' d. {choices[3]}"
+        selections = f"\n a. {choices[0]} \n b. {choices[1]}\n c. {choices[2]} \n d. {choices[3]}"
 
         choice_map = {
             "a": choices[0],
@@ -95,7 +85,7 @@ def main():
         # print(f"selections: {selections}")
 
         user_guess = input(
-            f"{new_line}What is the capital of {answers['Right Answer']['State']} ? {selections} '\n' '\n'"
+            f"\nWhat is the capital of {answers['Right Answer']['State']} ? \n{selections} \n \n"
         )
 
         if (
@@ -113,43 +103,7 @@ def main():
 
         return
 
-    playMultiple(four_answers)
-
-    # def playMultiple():
-    #     three_caps = four_answers["Wrong Answers"]
-    #     one_cap = four_answers["Right Answer"]["Capital"]
-    #     state = four_answers["Right Answer"]["State"]
-    #     new_line = "\n"
-
-    #     print(f"{new_line}One cap: {one_cap}{new_line}")
-
-    #     print(f"Three cap:{three_caps}{new_line}")
-
-    #     three_caps.append(one_cap)
-    #     print(three_caps)
-
-    #     random.shuffle(three_caps)
-    #     print(f"{new_line}Three caps shuffled: {three_caps}{new_line}")
-
-    #     # letters = ["a", "b", "c", "d"]
-
-    #     # print("Letters paired with options:")
-    #     # for l, s in zip(letters, three_caps):
-    #     #     print(l, s)
-
-    #     # user_guess = input(f"{new_line}What is the capital of {state} ?")
-
-    #     # {new_line} {new_line}{new_line.join(shuffle_copied_list)}{new_line}
-
-    #     user_guess = input(
-    #         f"{new_line}What is the capital of {state} ?{new_line} {new_line}{new_line.join(three_caps)}{new_line}"
-    #     )
-    #     while len(user_guess) > 0:
-    #         if user_guess in one_cap:
-    #             print("Woohoo!")
-    #             return
-    #         print(f"I'm sorry the correct answer is {one_cap}")
-    #         return
+    play_multiple(four_answers)
 
 
 def number_of_rounds():
@@ -161,11 +115,14 @@ def number_of_rounds():
 # run this for whole function
 number_of_rounds()
 
+# Did today Jan 29 Sunday:
+# # removed single quotes form \n entries in fstring of playMultiple()
+# # in wrong_answers() created if statement to rerun function if duplicates in false_answers
+
 # NEXT:
 # fruits and colors map
 # re-write script that seb wrote
 # re-write entire script
 # handle validation - clicking wrong letter
-# remove ' characters from answer choices
-# handle duplicate wrong answer in choices
+# handle .capitilize for answer choices
 # incorporate into larger app
