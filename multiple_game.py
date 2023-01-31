@@ -72,7 +72,7 @@ def main():
 
         random.shuffle(choices)
 
-        selections = f"\n a. {choices[0]} \n b. {choices[1]}\n c. {choices[2]} \n d. {choices[3]}"
+        selections = f"\n a. {choices[0]} \n b. {choices[1]} \n c. {choices[2]} \n d. {choices[3]}"
 
         # object mapping
         choice_map = {
@@ -83,17 +83,24 @@ def main():
         }
 
         print(
-            f"\nWhat is the capital of {answers['Right Answer']['State']} ? \n{selections} \n \n"
+            f"\nWhat is the capital of {answers['Right Answer']['State']} ? \n{selections} \n"
         )
 
-        user_guess = input("Enter answer: ")
+        while True:
+            user_guess = input("\nEnter answer: ")
+            user_entry = choice_map.get(user_guess)
+            if user_guess not in choice_map:
+                print("\nInvalid character please try again.\n")
+                continue
 
-        user_entry = choice_map.get(user_guess)
-
-        if user_entry == answers["Right Answer"]["Capital"]:
-            print(f"Correct! {answers['Right Answer']['Capital']}")
-        if user_entry not in answers["Right Answer"]["Capital"]:
-            print(f"Nope! The correct answer is {answers['Right Answer']['Capital']}")
+            if user_entry == answers["Right Answer"]["Capital"]:
+                print(f"\nCorrect! {answers['Right Answer']['Capital']}\n")
+                break
+            if user_entry not in answers["Right Answer"]["Capital"]:
+                print(
+                    f"\nNope! The correct answer is {answers['Right Answer']['Capital']}\n"
+                )
+                break
 
         # print(choice_map[user_guess])
         # while user_guess in choice_map and choice_map[user_guess]:
@@ -252,7 +259,6 @@ number_of_rounds()
 
 
 # NEXT:
-# fruits and colors map - DONE!
 # re-write script that seb wrote - DONE!
 # re-write entire script
 # handle validation - if user clicks wrong letter
