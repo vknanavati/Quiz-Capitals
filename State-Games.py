@@ -157,16 +157,14 @@ def number_of_rounds():
         main()
 
 
-number_of_rounds()
-
-
 def startGame():
     user_answer = input(
-        "Which game would you like to play? Party game or Capital game? "
+        "Which game would you like to play? Party game or Capital game or Multiple game? "
     )
 
     capital_game = re.search("capital", user_answer)
     party_game = re.search("party", user_answer)
+    multiple_game = re.search("multiple", user_answer)
     exit_game = re.search("exit", user_answer)
 
     if capital_game:
@@ -176,6 +174,10 @@ def startGame():
     if party_game:
         print("Play party game!")
         partyGame()
+
+    if multiple_game:
+        print("Play multiple game!")
+        number_of_rounds()
 
     if exit_game:
         print("Good bye!")
