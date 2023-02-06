@@ -2,13 +2,24 @@ import random
 import json
 import re
 
-with open("dummy_data.json", encoding="UTF-8") as state_dict_list:
+# with open("dummy_data.json", encoding="UTF-8") as state_dict_list:
+#     state_dict_list = state_dict_list.read()
+
+# state_dict_list = json.loads(state_dict_list)
+
+with open("dummy_multiple_data.json", encoding="UTF-8") as state_dict_list:
     state_dict_list = state_dict_list.read()
 
+# print(f"data:{state_dict_list}")
 state_dict_list = json.loads(state_dict_list)
+
+# global count
+USER_SCORE = {"party_game": 0, "capital_game": 0, "multiple_choice_game": 0}
 
 
 def partyGame():
+    # local count
+    count = 0
     while len(state_dict_list) > 0:
         single_state_dict = random.choice(state_dict_list)
 
@@ -24,8 +35,11 @@ def partyGame():
         user_guess = input(f"Is {state} republican or democratic? ")
 
         if user_guess == answer:
+            count = count + 1  # set local count
+            USER_SCORE["party_game"] = count  # set global count
             print("Woohoo! You got it!")
         elif user_guess not in answer:
+
             print("Oh no, your answer is incorrect.")
         else:
             break
@@ -48,14 +62,7 @@ def capitalGame():
             print("Please write republican or democratic.")
 
 
-with open("dummy_multiple_data.json", encoding="UTF-8") as state_dict_list:
-    state_dict_list = state_dict_list.read()
-
-# print(f"data:{state_dict_list}")
-state_dict_list = json.loads(state_dict_list)
-
-
-def main():
+def multipleChoiceGame():
     def right_answer():
         # grab correct answer
         while len(state_dict_list) > 0:
@@ -154,7 +161,7 @@ def main():
 
 def number_of_rounds():
     for _ in range(5):
-        main()
+        multipleChoiceGame()
 
 
 def startGame():
@@ -187,6 +194,9 @@ def startGame():
         print("Oh no, we don't have that game!")
 
     # WHY ARE THESE IF ALL IF STATEAMENTS AND NOT ELIF ELSE
+    # if statement sets a specific condition
+    # elif statement sets another speific condition after an if statement
+    # else has no conditional statement, handles any exceptions that are not specified
 
 
 startGame()
