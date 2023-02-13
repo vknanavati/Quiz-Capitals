@@ -19,7 +19,7 @@ USER_SCORE = {"party_game": 0, "capital_game": 0, "multiple_choice_game": 0}
 
 def partyGame():
     # local count
-    # count = 0
+    count = 0
     number_guesses = 0
     while number_guesses < 5:
         while len(state_dict_list) > 0:
@@ -37,38 +37,57 @@ def partyGame():
             user_guess = input(f"Is {state} republican or democratic? ")
 
             number_guesses = number_guesses + 1
-            if number_guesses == 5:
+            if number_guesses > 5:
+                print(f"Game over. Total points for party game:{count}")
+                choice = input("Would you like to play again? Y/N")
+                if choice == "Y":
+                    continue
                 break
 
             if user_guess == answer:
+                count += 1
                 # count = count + 1  # set local count
                 # USER_SCORE["party_game"] = count  # set global count
                 print("Woohoo! You got it!")
             elif user_guess not in answer:
+                count = count - 1
                 print("Oh no, your answer is incorrect.")
             else:
                 break
 
 
 def capitalGame():
-    while len(state_dict_list) > 0:
-        single_state_list = random.choice(state_dict_list)
+    count = 0
+    number_guesses = 0
+    while number_guesses < 5:
+        while len(state_dict_list) > 0:
+            single_state_list = random.choice(state_dict_list)
 
-        state = single_state_list["Name"]
-        capital = single_state_list["Capital"]
+            state = single_state_list["Name"]
+            capital = single_state_list["Capital"]
 
-        user_guess = input(f"What is the capital of {state} ? ")
+            user_guess = input(f"What is the capital of {state} ? ")
+            number_guesses = number_guesses + 1
+            if number_guesses > 5:
+                print(f"Game over. Total points for capital game:{count}")
+                choice = input("Would you like to play again? Y/N")
+                if choice == "Y":
+                    continue
+                break
 
-        if user_guess == capital:
-            print("Woohoo! You got it!")
-        elif user_guess not in capital:
-            print("Oh no, your answer is incorrect.")
-        else:
-            print("Please write republican or democratic.")
+            if user_guess == capital:
+                count += 1
+                print("Woohoo! You got it!")
+            elif user_guess not in capital:
+                count = count - 1
+                print("Oh no, your answer is incorrect.")
+            else:
+                break
 
 
 def multipleChoiceGame():
     def right_answer():
+        count = 0
         # grab correct answer
         while len(state_dict_list) > 0:
             single_state_dict = random.choice(state_dict_list)
@@ -126,6 +145,7 @@ def multipleChoiceGame():
     # output -> four answers are: {'Wrong Answers': ['Pierre', 'Harrisburg', 'Springfield'], 'Right Answer': {'Capital': 'Jackson', 'State': 'Mississippi'}}
 
     def play_multiple(answers):
+
         choices = answers["Wrong Answers"]
         choices.append(answers["Right Answer"]["Capital"])
 
@@ -149,12 +169,15 @@ def multipleChoiceGame():
             user_guess = input("\nEnter answer: ")
             user_entry = choice_map.get(user_guess)
             if user_guess not in choice_map:
+                count = count - 1
                 print("\nInvalid character please try again.\n")
                 continue
 
             if user_entry == answers["Right Answer"]["Capital"]:
+                count += 1
                 print(f"\nCorrect! {answers['Right Answer']['Capital']}\n")
                 break
+
             if user_entry not in answers["Right Answer"]["Capital"]:
                 print(
                     f"\nNope! The correct answer is {answers['Right Answer']['Capital']}\n"
@@ -167,6 +190,10 @@ def multipleChoiceGame():
 def number_of_rounds():
     for _ in range(5):
         multipleChoiceGame()
+    print(f"Game over. Total points for capital game{count}")
+    choice = input("Would you like to play again? Y/N")
+    if choice == "Y":
+        number_of_rounds()
 
 
 def startGame():
