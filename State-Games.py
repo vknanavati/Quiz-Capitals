@@ -19,30 +19,35 @@ USER_SCORE = {"party_game": 0, "capital_game": 0, "multiple_choice_game": 0}
 
 def partyGame():
     # local count
-    count = 0
-    while len(state_dict_list) > 0:
-        single_state_dict = random.choice(state_dict_list)
+    # count = 0
+    number_guesses = 0
+    while number_guesses < 5:
+        while len(state_dict_list) > 0:
+            single_state_dict = random.choice(state_dict_list)
 
-        state = single_state_dict["Name"]
-        dem = single_state_dict["Party"]["dem"]
+            state = single_state_dict["Name"]
+            dem = single_state_dict["Party"]["dem"]
 
-        answer = " "
-        if dem == "True":
-            answer = "democratic"
-        if dem == "False":
-            answer = "republican"
+            answer = " "
+            if dem == "True":
+                answer = "democratic"
+            if dem == "False":
+                answer = "republican"
 
-        user_guess = input(f"Is {state} republican or democratic? ")
+            user_guess = input(f"Is {state} republican or democratic? ")
 
-        if user_guess == answer:
-            count = count + 1  # set local count
-            USER_SCORE["party_game"] = count  # set global count
-            print("Woohoo! You got it!")
-        elif user_guess not in answer:
+            number_guesses = number_guesses + 1
+            if number_guesses == 5:
+                break
 
-            print("Oh no, your answer is incorrect.")
-        else:
-            break
+            if user_guess == answer:
+                # count = count + 1  # set local count
+                # USER_SCORE["party_game"] = count  # set global count
+                print("Woohoo! You got it!")
+            elif user_guess not in answer:
+                print("Oh no, your answer is incorrect.")
+            else:
+                break
 
 
 def capitalGame():
