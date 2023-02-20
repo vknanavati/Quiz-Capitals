@@ -20,8 +20,8 @@ USER_SCORE = {"party_game": 0, "capital_game": 0, "multiple_choice_game": 0}
 def partyGame():
     # local count
     count = 0
-    number_guesses = 0
-    while number_guesses < 5:
+    number_rounds = 0
+    while number_rounds < 5:
         while len(state_dict_list) > 0:
             single_state_dict = random.choice(state_dict_list)
 
@@ -43,11 +43,12 @@ def partyGame():
             if dem == "False":
                 answer = "republican"
 
-            user_guess = input(f"\nIs {state} republican or democratic? ")
+            print(f"\nIs {state} republican or democratic?")
+            # user_guess = input(f"\nIs {state} republican or democratic? ")
+            user_guess = input("\nEnter Answer: ")
             user_guess = user_guess.lower()
-
-            number_guesses = number_guesses + 1
-            if number_guesses > 5:
+            number_rounds = number_rounds + 1
+            if number_rounds > 5:
                 print(f"Game over. Total points for party game:{count}")
                 choice = input("Would you like to play again? Y/N: ")
                 if choice == "Y":
