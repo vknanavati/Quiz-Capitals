@@ -45,32 +45,34 @@ def partyGame():
 
             print(f"\nIs {state} republican or democratic?")
             # user_guess = input(f"\nIs {state} republican or democratic? ")
-            user_guess = input("\nEnter Answer: ")
-            user_guess = user_guess.lower()
             number_rounds = number_rounds + 1
-            if number_rounds > 5:
-                print(f"Game over. Total points for party game:{count}")
-                choice = input("Would you like to play again? Y/N: ")
-                if choice == "Y":
-                    continue
-                startGame()
 
-            if answer_map[user_guess] == answer:
-                count += 1
-                # count = count + 1  # set local count
-                # USER_SCORE["party_game"] = count  # set global count
-                print("Woohoo! You got it!\n")
-            elif user_guess not in answer:
-                count = count - 1
-                print("Oh no, your answer is incorrect.\n")
-            else:
+            while True:
+                user_guess = input("\nEnter Answer: ")
+                user_guess = user_guess.lower()
+
+                if user_guess not in answer_map:
+                    print("Invalid character. Please try again.")
+                    continue
+                if answer_map[user_guess] == answer:
+                    count += 1
+                    # count = count + 1  # set local count
+                    # USER_SCORE["party_game"] = count  # set global count
+                    print("Woohoo! You got it!\n")
+                elif user_guess not in answer:
+                    count = count - 1
+                    print("Oh no, your answer is incorrect.\n")
                 break
 
+            if number_rounds > 5:
+                print(f"Game over. Total points for party game: {count}")
+                exit_message()
 
-def capitalGame():
+
+def state_capital_game():
     count = 0
-    number_guesses = 0
-    while number_guesses < 5:
+    number_rounds = 0
+    while number_rounds < 5:
         while len(state_dict_list) > 0:
             single_state_list = random.choice(state_dict_list)
 
@@ -78,13 +80,7 @@ def capitalGame():
             capital = single_state_list["Capital"]
 
             user_guess = input(f"What is the capital of {state} ? ")
-            number_guesses = number_guesses + 1
-            if number_guesses > 5:
-                print(f"Game over. Total points for capital game:{count}")
-                choice = input("Would you like to play again? Y/N")
-                if choice == "Y":
-                    continue
-                break
+            number_rounds = number_rounds + 1
 
             if user_guess == capital:
                 count += 1
@@ -94,6 +90,10 @@ def capitalGame():
                 print("Oh no, your answer is incorrect.")
             else:
                 break
+
+            if number_rounds > 5:
+                print(f"Game over. Total points for capital game:{count}")
+                exit_message()
 
 
 def right_answer():
@@ -201,7 +201,7 @@ def play_multiple(answers):
 # play_multiple(four_answers)
 
 
-def multipleChoiceGame():
+def multiple_choice_game():
     rounds = 0
     while rounds < 5:
         good_answer = right_answer()
@@ -211,9 +211,10 @@ def multipleChoiceGame():
         rounds = rounds + 1
     if rounds == 5:
         print("GAME OVER")
+        exit_message()
 
 
-def startGame():
+def start_game():
     user_answer = input(
         "Which game would you like to play? Party game or Capital game or Multiple game? "
     )
@@ -225,7 +226,7 @@ def startGame():
 
     if capital_game:
         print("Play capital game!")
-        capitalGame()
+        state_capital_game()
 
     if party_game:
         print("Play party game!")
@@ -234,7 +235,7 @@ def startGame():
     if multiple_game:
         print("Play multiple game!")
         # number_of_rounds()
-        multipleChoiceGame()
+        multiple_choice_game()
 
     if exit_game:
         print("Good bye!")
@@ -249,8 +250,19 @@ def startGame():
     # else has no conditional statement, handles any exceptions that are not specified
 
 
-startGame()
+def exit_message():
+    choice = input(
+        "\nWould you like to : \n A. play another round \n B. choose another game \n C. quit\n\nEnter Choice: "
+    ).upper()
+    # while choice == "A":
+    #     continue
+    if choice == "B":
+        start_game()
+    if choice == "C":
+        quit()
 
+
+start_game()
 
 ############################
 # import random
@@ -311,7 +323,7 @@ startGame()
 #                 break
 
 
-# def capitalGame():
+# def capital_game():
 #     count = 0
 #     number_guesses = 0
 #     while number_guesses < 5:
@@ -445,7 +457,7 @@ startGame()
 # # play_multiple(four_answers)
 
 
-# def multipleChoiceGame():
+# def multiple_choice_game():
 #     rounds = 0
 #     while rounds < 5:
 #         good_answer = right_answer()
@@ -457,7 +469,7 @@ startGame()
 #         print("GAME OVER")
 
 
-# def startGame():
+# def start_game():
 #     user_answer = input(
 #         "Which game would you like to play? Party game or Capital game or Multiple game? "
 #     )
@@ -469,7 +481,7 @@ startGame()
 
 #     if capital_game:
 #         print("Play capital game!")
-#         capitalGame()
+#         capital_game()
 
 #     if party_game:
 #         print("Play party game!")
@@ -478,7 +490,7 @@ startGame()
 #     if multiple_game:
 #         print("Play multiple game!")
 #         # number_of_rounds()
-#         multipleChoiceGame()
+#         multiple_choice_game()
 
 #     if exit_game:
 #         print("Good bye!")
@@ -493,4 +505,4 @@ startGame()
 #     # else has no conditional statement, handles any exceptions that are not specified
 
 
-# startGame()
+# start_game()
