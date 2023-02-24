@@ -66,7 +66,11 @@ def partyGame():
 
             if number_rounds > 5:
                 print(f"Game over. Total points for party game: {count}")
-                exit_message()
+                break
+    # party_exit = exit_message(partyGame)
+    # party_exit = exit_message(partyGame)
+    party_exit = exit_message(partyGame)
+    exit_message(party_exit)
 
 
 def state_capital_game():
@@ -93,7 +97,9 @@ def state_capital_game():
 
             if number_rounds > 5:
                 print(f"Game over. Total points for capital game:{count}")
-                exit_message()
+                exit_message(state_capital_game())
+    capital_exit = exit_message(state_capital_game)
+    exit_message(capital_exit)
 
 
 def right_answer():
@@ -211,7 +217,8 @@ def multiple_choice_game():
         rounds = rounds + 1
     if rounds == 5:
         print("GAME OVER")
-        exit_message()
+        multiple_exit = exit_message(multiple_choice_game)
+        exit_message(multiple_exit)
 
 
 def start_game():
@@ -250,16 +257,18 @@ def start_game():
     # else has no conditional statement, handles any exceptions that are not specified
 
 
-def exit_message():
+def exit_message(func):
+    print("EXIT MESSAGE")
     choice = input(
         "\nWould you like to : \n A. play another round \n B. choose another game \n C. quit\n\nEnter Choice: "
     ).upper()
-    # while choice == "A":
-    #     continue
+    if choice == "A":
+        func()
     if choice == "B":
         start_game()
     if choice == "C":
         quit()
+    return exit_message
 
 
 start_game()
